@@ -12,7 +12,7 @@ end
 
 for node_id, def in pairs(minetest.registered_items) do
     local mod_name, node_name = node_id:match("^([^:]+):([^:]+)$")
-    if has_value(mods_to_disable, mod_name) and minetest.get_modpath(mod_name) then
+    if has_value(mods_to_disable, mod_name) then
         minetest.log("warning", ("[crafting_disabler] removing recipe for %q"):format(node_id))
         minetest.clear_craft({output=node_id})
     end
